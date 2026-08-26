@@ -31,8 +31,8 @@ mac{
     QT_CONFIG -= no-pkg-config
     CONFIG += link_pkgconfig
     PKGCONFIG += libcdio libcdio_cdda libcdio_paranoia libiso9660 libudf taglib libnetmd++
-    INCLUDEPATH += /usr/local/include
-    LIBS += -L/usr/local/lib
+    INCLUDEPATH += /opt/homebrew/include
+    LIBS += -L/opt/homebrew/lib
 
     # since libcdio doesn't support CD-Text on Mac, use drutil
     QT += xml

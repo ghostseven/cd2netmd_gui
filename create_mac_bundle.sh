@@ -7,7 +7,7 @@ BUILDFOLDER=release
 TMPFILE=/tmp/plist.tmp
 CONTENTS=${APPNAME}.app/Contents
 OFFNAME="NetMD Wizard"
-QTTRANS=/Users/joergn/Qt5.12.12/5.12.12/clang_64/translations
+QTTRANS=/opt/homebrew/Cellar/qt@5/5.15.19/translations
 echo "Creating APP bundle for ${APPNAME} ..."
 
 echo "Official name is ${OFFNAME} ..."
@@ -27,8 +27,7 @@ mkdir -p "${CONTENTS}/Frameworks"
 mkdir -p "${CONTENTS}/translations"
 cp "../res/minidisc.icns" "${CONTENTS}/Resources/${APPNAME}.icns"
 cp ../prebuilt/mac/bin/atracdenc "${CONTENTS}/MacOS/"
-cp ../ffmpeg/mac/ffmpeg "${CONTENTS}/MacOS/"
-cp ../prebuilt/mac/lib/*.dylib "${CONTENTS}/Frameworks/"
+cp $(which ffmpeg) "${CONTENTS}/MacOS/"
 cp ../help/*.png ../help/*.html "${CONTENTS}/Resources/help/"
 
 # copy Qt translations
@@ -76,7 +75,6 @@ macdeployqt "${APPNAME}.app" -verbose=0
 # install_name_tool -change libjson-c.5.dylib @executable_path/../Frameworks/libjson-c.5.dylib "${APPNAME}.app/Contents/MacOS/${APPNAME}"
 # install_name_tool -id @executable_path/../Frameworks/libjson-c.5.dylib "${APPNAME}.app/Contents/Frameworks/libjson-c.5.dylib"
 # install_name_tool -id @executable_path/../Frameworks/libcue.2.dylib "${APPNAME}.app/Contents/Frameworks/libcue.2.dylib"
-install_name_tool -change /usr/local/lib/libsndfile.1.dylib @executable_path/../Frameworks/libsndfile.1.dylib "${APPNAME}.app/Contents/MacOS/atracdenc"
 # install_name_tool -change /usr/local/opt/libogg/lib/libogg.0.dylib @executable_path/../Frameworks/libogg.0.dylib "${APPNAME}.app/Contents/MacOS/flac"
 # install_name_tool -change /usr/local/Cellar/flac/1.3.3/lib/libFLAC.8.dylib @executable_path/../Frameworks/libFLAC.8.dylib "${APPNAME}.app/Contents/MacOS/flac"
 
