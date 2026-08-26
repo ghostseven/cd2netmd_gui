@@ -1,3 +1,14 @@
+# NetMD Wizard -  Apple Silicone arm64 Build Project
+
+This is a version of NetMD Wizard focused on providing a native Apple Silicone (arm64) version. 
+
+This is a first attempt and build instructions are [here](apple_silicon_arm64_build.md). 
+
+There will also be a pre-build release here.
+
+Other docs will be out of date / broken or misleading.  This is a work in progress.
+
+
 # NetMD Wizard
 A tool like Sonys NetMD Simple Burner to transfer audio from CD to NetMD. It is written in C++ using the Qt framework.
 It supports Windows 7 64bit and newer, MacOS 10.13 and newer, and Ubuntu (and derivates) 18.04 and newer.
