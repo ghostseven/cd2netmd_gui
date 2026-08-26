@@ -66,6 +66,5 @@ Thumbs.db
 
 # all from install folder
 install/*
-release/*
 debug/*
 packages/*
