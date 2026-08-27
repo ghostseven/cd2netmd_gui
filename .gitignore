@@ -69,3 +69,9 @@ install/*
 release/*
 debug/*
 packages/*
+
+
+#allow some from release 
+!release/assets/*
+!release/sign_build.sh
+!release/build_dmg.sh
