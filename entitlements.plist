@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- QtQml/QtQuick can JIT-compile; hardened runtime blocks unsigned
+         executable memory by default, which breaks this. -->
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <true/>
+
+    <!-- App performs CDDB lookups over the network (ccddb.cpp) -->
+    <key>com.apple.security.network.client</key>
+    <true/>
+
+    <!-- Optional safety net: only add this key if notarization or
+         launch fails with a library validation error you can't
+         otherwise track down. Every dylib is explicitly re-signed
+         with your identity in the script, so this should not be
+         needed in normal operation.
+         Key to add if needed: com.apple.security.cs.disable-library-validation (bool true)
+    -->
+</dict>
+</plist>
